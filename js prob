@@ -1,0 +1,17 @@
+var pbFunctions = Class.create();
+pbFunctions.prototype = {
+    initialize: function() {},
+    getprbmanagers: function() {
+        var pmanagers = '';
+        var gr = new GlideRecord('sys_user_has_role');
+        gr.addQuery('role', 'b573c1f9538823004247ddeeff7b12e0');
+        gr.query();
+        while (gr.next()) {
+            pmanagers = pmanagers + ',' + gr.user;
+        }
+        var results = 'sys_idN' + pmanagers;
+        return result;
+    },
+
+    type: 'pbFunctions'
+};
