@@ -1,17 +1,21 @@
-var pbFunctions = Class.create();
-pbFunctions.prototype = {
-    initialize: function() {},
-    getprbmanagers: function() {
-        var pmanagers = '';
-        var gr = new GlideRecord('sys_user_has_role');
-        gr.addQuery('role', 'b573c1f9538823004247ddeeff7b12e0');
+var prbFunctions = Class.create();
+prbFunctions.prototype = {
+    initialize: function() {
+		},
+getprbmanagers: function() {
+var pmanagers = '';
+    var gr = new GlideRecord('sys_user_has_role');
+        gr.addQuery('role','b573c1f9538823004247ddeeff7b12e0');
         gr.query();
-        while (gr.next()) {
+        while (gr.next()) 
+		{
             pmanagers = pmanagers + ',' + gr.user;
         }
-        var results = 'sys_idN' + pmanagers;
+        var result = 'sys_idIN' + pmanagers;
         return result;
+
+
     },
 
-    type: 'pbFunctions'
+    type: 'prbFunctions'
 };
