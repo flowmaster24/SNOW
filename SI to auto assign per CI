@@ -1,0 +1,19 @@
+var setSupportGroup = Class.create();
+setSupportGroup.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	
+	getCI : function(){
+	var cmdbci = this.getParameter('sysparm_ci');
+		var gr = new GlideRecord('cmdb_ci)');
+		gr.addQuery('sys_id',cmdbci);
+		gr.addNotNullQuery('support_group');
+		gr.query();
+		if(gr.next())
+			{
+				return gr.spport_group;
+			}
+			
+		
+	},
+
+    type: 'setSupportGroup'
+});
