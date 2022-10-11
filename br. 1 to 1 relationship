@@ -1,0 +1,14 @@
+(function executeRule(current, previous /*null when async*/) {
+    var grNewWarRoom;
+    var grOldWarRoom;
+    if (!current.u_war_room.nil()) {
+        grNewWarRoom = current.u_war_room.getRefRecord();
+        grNewWarRoom.setValue('u_major_incident', current.getValue('sys_id'));
+        grNewWarRoom.update();
+    }
+    if (!previous.u_war_room.nil()) {
+        grOldWarRoom = previous.u_war_room.getRefRecord();
+        grOldWarRoom.setValue('u_major_incident', '');
+        grOldWarRoom.update();
+    }
+})(current, previous);
