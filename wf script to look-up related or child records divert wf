@@ -1,0 +1,10 @@
+answer = 'no'; 
+var gr = new GlideRecord('table_name'); 
+gr.addQuery('state', '7'); 
+gr.addQuery('parent', current.getValue('sys_id')); 
+gr.setLimit(1); 
+gr.query(); 
+if (gr.hasNext()) { 
+   answer = 'yes'; 
+}
+
